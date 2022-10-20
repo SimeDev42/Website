@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+body.noScroll {
+  overflow: hidden;
+}
+
+body {
+  --color1: #000F08;
+  --color2: #136F63;
+  --color3: #E0CA3C;
+  --color4: #F34213;
+  --color5: #3E2F5B;
+  width: 100vw;
+  height: 1000vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Silkscreen";
+  scroll-behavior: smooth;
+}
+body p {
+  margin: 0;
+  padding: 0;
+}
+body .scrollDown {
+  z-index: 1;
+  position: relative;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+body .scrollDown .content {
+  margin-right: 5vw;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .scrollDown .content p {
+  color: var(--color3);
+  font-size: 4vw;
+  text-align: center;
+  width: 100%;
+}
+body .scrollDown .content .downArrow {
+  height: 20%;
+}
+body .scrollDown .content .downArrow svg {
+  width: 100%;
+  height: 100%;
+}
+body .scrollDown .content .downArrow svg path {
+  fill: var(--color3);
+}
+body .container {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container #playbackImg {
+  z-index: -1;
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+body .container .terminal {
+  display: none;
+  width: 80vw;
+  height: 80vh;
+  border-radius: 1vw;
+  overflow: auto;
+}
+body .container .terminal #template {
+  display: none;
+}
+body .container .terminal .content {
+  margin-left: 2%;
+  margin-top: 1%;
+  color: var(--color2);
+  white-space: pre-line;
+  width: 50%;
+  font-size: x-large;
+}
+body .container .terminal .terminalLine {
+  margin-left: 2%;
+  margin-top: 2%;
+  color: var(--color3);
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body .container .terminal .terminalLine p {
+  pointer-events: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+  font-size: x-large;
+}
+body .container .terminal .terminalLine .inputValue {
+  margin-left: 1%;
+  color: var(--color4);
+  white-space: pre;
+}
+body .container .terminal .terminalLine .cursor {
+  width: 0.75%;
+  background-color: white;
+  -webkit-animation: cursor 0.7s ease-in-out infinite alternate;
+          animation: cursor 0.7s ease-in-out infinite alternate;
+}
+@-webkit-keyframes cursor {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+@keyframes cursor {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.75;
+  }
+}/*# sourceMappingURL=index.css.map */
