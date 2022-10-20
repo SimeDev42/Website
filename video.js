@@ -44,7 +44,7 @@ async function load(){
         });
     
     }
-    await fetch("/testVideo/images/0350.png").then(response => response.blob())
+    await fetch("/images/0350.png").then(response => response.blob())
         .then(imageBlob => {
             var imageObjectURL = URL.createObjectURL(imageBlob);
             images.push(imageObjectURL)
