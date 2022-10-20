@@ -21,6 +21,22 @@ body p {
   margin: 0;
   padding: 0;
 }
+body .loading {
+  position: fixed;
+  z-index: 3;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .loading p {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: xx-large;
+}
 body .scrollDown {
   z-index: 1;
   position: relative;

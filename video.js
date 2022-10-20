@@ -51,6 +51,8 @@ async function load(){
             // console.log(imageObjectURL);
         });
     console.log("Loaded!")
+    document.body.style.overflowY = "scroll"
+    document.body.removeChild(document.getElementsByClassName("loading")[0])
 }
 
 load()

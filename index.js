@@ -14,6 +14,8 @@ whoami = "name : Simeone\n age : 14\n favourite programming language : don't kno
 
 help = "This is a list of all available commands:\n- clear : clear the screen\n- whoami : know about who i am\n- help : show this page"
 
+document.body.style.overflowY = "hidden"
+
 function newLine(){
     let newDiv = template.cloneNode(true)
     newDiv.id = ""
