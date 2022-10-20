@@ -36,7 +36,7 @@ window.onscroll = function(e){
 var images = []
 async function load(){
     for (let i = 1; i <= 350;i+=5){
-         await fetch("/images/"+String("0".repeat(4-String(i).length))+String(i)+".png").then(response => response.blob())
+         await fetch("https://raw.githubusercontent.com/SimeDev42/Website/master/images/"+String("0".repeat(4-String(i).length))+String(i)+".png").then(response => response.blob())
         .then(imageBlob => {
             var imageObjectURL = URL.createObjectURL(imageBlob);
             images.push(imageObjectURL)
@@ -44,7 +44,7 @@ async function load(){
         });
     
     }
-    await fetch("/images/0350.png").then(response => response.blob())
+    await fetch("https://raw.githubusercontent.com/SimeDev42/Website/master/images/0350.png").then(response => response.blob())
         .then(imageBlob => {
             var imageObjectURL = URL.createObjectURL(imageBlob);
             images.push(imageObjectURL)
