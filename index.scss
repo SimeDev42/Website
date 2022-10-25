@@ -1,15 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
-body.noScroll{
-    overflow: hidden;
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+:root{
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 body{
+
     --color1: #000F08;
     --color2: #136F63;
     --color3: #E0CA3C;
     --color4: #F34213;
     --color5: #3E2F5B;
+
+    // cursor:url("pointer.png"),default;
     // background-color: var(--color1);
     width: 100vw;
     height: 1000vh;
@@ -19,6 +36,25 @@ body{
     overflow-x: hidden;
     font-family: 'Silkscreen';
     scroll-behavior: smooth;
+
+
+    .scrollIndicator{
+        z-index: 5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        height: 0.2vh;
+        background-color: var(--color3);
+    }
+
+    #pointer{
+        position: absolute;
+        z-index: 4;
+        width: 1vw;
+        display: none;
+    }
 
     p{
         margin: 0;
@@ -34,11 +70,24 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         p{
             margin: 0;
             padding: 0;
             color: white;
             font-size: xx-large;
+        }
+        .progressContainer{
+            margin-top: 3vh;
+            width: 20vw;
+            min-width: 192px;
+            height: 3vh;
+            border: 1px white solid;
+            .progressBar{
+                height: 100%;
+                width: 0%;
+                background-color: white;
+            }
         }
     }
 
@@ -101,60 +150,72 @@ body{
             padding: 0;
         }
 
-
-        .terminal{
+        .bg{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             display: none;
-            width: 80vw;
-            height: 80vh;
-            // background-color: var(--color2);
-            border-radius: 1vw;
-            overflow: auto;
 
-            #template{
-                display: none;
-            }
-
-            .content{
-                margin-left: 2%;
-                margin-top: 1%;
-                color: var(--color2);
-                white-space: pre-line;
-                width: 50%;
-                font-size: x-large;
-            }
-
-            .terminalLine{
-                margin-left: 2%;
-                margin-top: 2%;
-                color: var(--color3);
-                display: flex;
-                height: fit-content;
-                p{
-                    pointer-events: none;
-                    -webkit-user-select: none; /* Safari */
-                    -ms-user-select: none; /* IE 10 and IE 11 */
-                    user-select: none; /* Standard syntax */
+            .terminal{
+                width: 80vw;
+                height: 80vh;
+                // background-color: var(--color2);
+                border-radius: 1vw;
+                overflow: auto;
+                #template{
+                    display: none;
+                }
+    
+                .content{
+                    margin-left: 2%;
+                    margin-top: 1%;
+                    color: var(--color2);
+                    white-space: pre-line;
+                    width: 100%;
                     font-size: x-large;
-                }
-                .inputValue{
-                    margin-left: 1%;
-                    color: var(--color4);
-                    white-space: pre;
-                }
-                .cursor{
-                    // border: red 2px solid;
-                    width: 0.75%;
-                    background-color: white;
-                    animation: cursor 0.7s ease-in-out infinite alternate;
-                }
 
-
-                @keyframes cursor {
-                    from{
-                        opacity: 0;
+                    
+                    a:hover{
+                        cursor: pointer;
                     }
-                    to{
-                        opacity: 0.75;
+                }
+    
+                .terminalLine{
+                    margin-left: 2%;
+                    margin-top: 2%;
+                    color: var(--color3);
+                    display: flex;
+                    height: fit-content;
+                    p{
+                        pointer-events: none;
+                        -webkit-user-select: none; /* Safari */
+                        -ms-user-select: none; /* IE 10 and IE 11 */
+                        user-select: none; /* Standard syntax */
+                        font-size: x-large;
+                    }
+                    .inputValue{
+                        margin-left: 1%;
+                        color: var(--color4);
+                        white-space: pre;
+                    }
+                    .cursor{
+                        // border: red 2px solid;
+                        width: 0.75%;
+                        background-color: white;
+                        animation: cursor 0.7s ease-in-out infinite alternate;
+                    }
+    
+    
+                    @keyframes cursor {
+                        from{
+                            opacity: 0;
+                        }
+                        to{
+                            opacity: 0.75;
+                        }
                     }
                 }
             }

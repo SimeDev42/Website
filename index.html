@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhoAmI</title>
+    <title>SimeDev</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <img id="pointer" src="pointer.png" alt="">
+
+    <div class="scrollIndicator"></div>
+
     <div class="loading">
         <p>Loading...</p>
+        <div class="progressContainer">
+            <div class="progressBar"></div>
+        </div>
     </div>
 
     <div class="scrollDown">
@@ -21,11 +29,13 @@
         </div>
     </div>
     <div class="container">
-        <div class="terminal">
-            <div id="template" class="terminalLine">
-                <p>SIME@DEV:~$ </p>
-                <p class="inputValue"></p>
-                <div class="cursor"></div>
+        <div class="bg">
+            <div class="terminal">
+                <div id="template" class="terminalLine">
+                    <p>SIME@DEV:~$ </p>
+                    <p class="inputValue"></p>
+                    <div class="cursor"></div>
+                </div>
             </div>
         </div>
 

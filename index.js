@@ -12,7 +12,7 @@ let canWrite = false;
 
 whoami = "name : Simeone\n age : 14\n favourite programming language : don't know yet :)\n favourite sport: f1"
 
-help = "This is a list of all available commands:\n- clear : clear the screen\n- whoami : know about who i am\n- help : show this page"
+help = 'This is a list of all available commands:\n- <a onclick="Clear()">clear</a> : clear the screen\n- <a onclick="printWhoami()">whoami</a> : know about who i am\n- <a onclick="printHelp()">help</a> : show this page'
 
 document.body.style.overflowY = "hidden"
 
@@ -40,12 +40,19 @@ function clearScreen(){
     }
 }
 
+
+function Clear(){
+    clearScreen()
+    newLine()
+    printHelp()
+}
+
 function printToScreen(data){
     console.log("Print")
     let newP = document.createElement("p")
     newP.setAttribute("class","content")
     terminal.appendChild(newP)
-    newP.textContent = String(data)
+    newP.innerHTML = String(data)
 }
 
 function executeCommand(){
@@ -78,6 +85,15 @@ function executeCommand(){
     // printToScreen();
 }
 
+function printWhoami(){
+    printToScreen(whoami)
+    newLine()
+}
+function printHelp(){
+    printToScreen(help)
+    newLine()
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
 
     newLine();
@@ -96,7 +112,7 @@ function helpAnim(){
                     input.textContent+='p'
                     setTimeout(() => {
                         executeCommand()
-                        document.body.className = ""
+                        document.body.style.overflowY = "scroll"
                         canWrite = true
                     }, 500);
                 }, 300);

@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
-body.noScroll {
-  overflow: hidden;
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+:root {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+   supported by Chrome, Edge, Opera and Firefox */
 }
 
 body {
@@ -17,6 +28,22 @@ body {
   font-family: "Silkscreen";
   scroll-behavior: smooth;
 }
+body .scrollIndicator {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 0.2vh;
+  background-color: var(--color3);
+}
+body #pointer {
+  position: absolute;
+  z-index: 4;
+  width: 1vw;
+  display: none;
+}
 body p {
   margin: 0;
   padding: 0;
@@ -30,12 +57,25 @@ body .loading {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 body .loading p {
   margin: 0;
   padding: 0;
   color: white;
   font-size: xx-large;
+}
+body .loading .progressContainer {
+  margin-top: 3vh;
+  width: 20vw;
+  min-width: 192px;
+  height: 3vh;
+  border: 1px white solid;
+}
+body .loading .progressContainer .progressBar {
+  height: 100%;
+  width: 0%;
+  background-color: white;
 }
 body .scrollDown {
   z-index: 1;
@@ -93,25 +133,36 @@ body .container #playbackImg {
   margin: 0;
   padding: 0;
 }
-body .container .terminal {
+body .container .bg {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
+}
+body .container .bg .terminal {
   width: 80vw;
   height: 80vh;
   border-radius: 1vw;
   overflow: auto;
 }
-body .container .terminal #template {
+body .container .bg .terminal #template {
   display: none;
 }
-body .container .terminal .content {
+body .container .bg .terminal .content {
   margin-left: 2%;
   margin-top: 1%;
   color: var(--color2);
   white-space: pre-line;
-  width: 50%;
+  width: 100%;
   font-size: x-large;
 }
-body .container .terminal .terminalLine {
+body .container .bg .terminal .content a:hover {
+  cursor: pointer;
+}
+body .container .bg .terminal .terminalLine {
   margin-left: 2%;
   margin-top: 2%;
   color: var(--color3);
@@ -120,7 +171,7 @@ body .container .terminal .terminalLine {
   height: -moz-fit-content;
   height: fit-content;
 }
-body .container .terminal .terminalLine p {
+body .container .bg .terminal .terminalLine p {
   pointer-events: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -128,12 +179,12 @@ body .container .terminal .terminalLine p {
        user-select: none; /* Standard syntax */
   font-size: x-large;
 }
-body .container .terminal .terminalLine .inputValue {
+body .container .bg .terminal .terminalLine .inputValue {
   margin-left: 1%;
   color: var(--color4);
   white-space: pre;
 }
-body .container .terminal .terminalLine .cursor {
+body .container .bg .terminal .terminalLine .cursor {
   width: 0.75%;
   background-color: white;
   -webkit-animation: cursor 0.7s ease-in-out infinite alternate;
